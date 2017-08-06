@@ -10,9 +10,9 @@ class TestPyTest:
         """
         This is a fixture function whose scope is the class. This means that this function
         will be executed once per class.
-        This function also has some teardown code. All code after the yield statement serve as the teardown code.
-        :return: A fixture object that can be passed as an input to test functions. This fixture function returns a
-                 list of string values.
+        This function also has some teardown code. All code after the yield statement serves as the teardown code.
+        :return: A fixture object that can be passed as an input to test functions. This specific fixture function
+                 returns a list of string values.
         """
         logging.info('Inside class setup...')
         t_list = ['Ontario', 'Sasketchewan', 'Nova Scotia', 'New Brunswick', 'Newfoundland and Labrador',
