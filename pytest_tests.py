@@ -1,5 +1,6 @@
 import logging
 import pytest
+import sys
 
 logging.basicConfig(format='%(asctime)s: %(levelname)s: %(message)s', level='INFO')
 
@@ -82,3 +83,28 @@ class TestPyTest:
         :param item: provided by the @parametrize decorator
         """
         assert item in test_list
+        
+    @pytest.mark.skip(reason='Testing the @skip decorator.')
+    def test_seven(self):
+        """
+        This test will be skipped because it has been marked with the @skip decorator.
+        This test will be reported in a separate section called SKIPPED.
+        """
+        assert True
+        
+    @pytest.mark.skipif(sys.platform == 'win32',
+                        reason='Testing the @skipif decorator')
+    def test_eight(self):
+        """
+        This test will be executed only if sys.platform is not win32; will be skipped otherwise.
+        """
+        assert True
+        
+    def test_nine(self):
+        """
+        Skipping a test without the decorator can be accomplished
+        by calling the pytest.skip(reason) function from inside the test method.
+        """
+        if sys.platform == 'win32':
+            pytest.skip('Unsupported platform. Therefore, skipping the test.')
+        assert True
