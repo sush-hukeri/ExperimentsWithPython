@@ -10,8 +10,11 @@ class TestPyTest:
     def test_list(self):
         """
         This is a fixture function whose scope is the class. This means that this function
-        will be executed once per class.
-        This function also has some teardown code. All code after the yield statement serves as the teardown code.
+        will be executed only once for this class. It will be executed before any test functions are executed.
+
+        This function also has some teardown code. All code after the yield statement serves as the teardown code which
+        will be executed only once after all test functions have finished executing.
+
         :return: A fixture object that can be passed as an input to test functions. This specific fixture function
                  returns a list of string values.
         """
